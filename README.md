@@ -1,1 +1,1 @@
-# stream-flix
+# Stream Flix
