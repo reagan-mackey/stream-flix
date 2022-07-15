@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useSearchContext } from "../context/search-context";
 
 const SearchForm = () => {
-  const [search, setSearch] = useState([]);
+  const { search, setSearch } = useSearchContext();
 
   return (
     <div className="header">
