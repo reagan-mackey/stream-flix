@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { API_ENDPOINT } from "../context/search-context";
 import axios from "axios";
 
@@ -31,6 +31,7 @@ const Movie = () => {
         <h1>{title}</h1>
         <p>{plot !== "N/A" ? plot : "No summary is available."}</p>
       </div>
+      <Link to="/">Back to Search</Link>
     </section>
   );
 };
