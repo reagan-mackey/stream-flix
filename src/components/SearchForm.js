@@ -4,7 +4,7 @@ const SearchForm = () => {
   const { search, setSearch } = useSearchContext();
 
   return (
-    <div className="header">
+    <div className="header mx-3">
       <h1 className="app-title">search for movies</h1>
       <form className="search-form" onSubmit={(e) => e.preventDefault()}>
         <input

@@ -26,7 +26,7 @@ const MovieList = () => {
   }, [search]);
 
   return (
-    <div className="movie-list">
+    <div className="movie-list card-group cards-container">
       {movies.length !== 0
         ? movies.Search.map((movie) => {
             const {
@@ -36,13 +36,27 @@ const MovieList = () => {
               imdbID: id,
             } = movie;
             return (
-              <Link to={`/movies/${id}`} key={id}>
-                <article className="movie-card">
-                  <img src={poster !== "N/A" ? poster : ""} alt={title} />
-                  <h4>{title}</h4>
-                  <p>{year}</p>
-                </article>
-              </Link>
+              <div className="col-sm-3 mb-3">
+                <div className="movie-list card h-100 text-center m-2">
+                  <Link
+                    to={`/movies/${id}`}
+                    key={id}
+                    className="movie-link text-decoration-none"
+                  >
+                    <article className="movie-list card-info m-1">
+                      <img
+                        src={poster !== "N/A" ? poster : ""}
+                        alt={title}
+                        className="card-img-top movie-list"
+                      />
+                      <div>
+                        <h4 className="movie-list card-title">{title}</h4>
+                        <p className="movie-list card-text">{year}</p>
+                      </div>
+                    </article>
+                  </Link>
+                </div>
+              </div>
             );
           })
         : ""}
