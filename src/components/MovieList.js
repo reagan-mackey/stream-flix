@@ -43,14 +43,14 @@ const MovieList = () => {
                     key={id}
                     className="movie-link text-decoration-none"
                   >
-                    <article className="movie-list card-info m-1">
+                    <article className="movie-list m-1">
                       <img
                         src={poster !== "N/A" ? poster : ""}
                         alt={title}
                         className="card-img-top movie-list"
                       />
                       <div>
-                        <h4 className="movie-list card-title">{title}</h4>
+                        <h4 className="movie-list">{title}</h4>
                         <p className="movie-list card-text">{year}</p>
                       </div>
                     </article>

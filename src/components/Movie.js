@@ -25,14 +25,32 @@ const Movie = () => {
 
   const { Poster: poster, Title: title, Plot: plot } = movie;
   return (
-    <section className="single-movie">
-      <img src={poster !== "N/A" ? poster : ""} alt={title} />
-      <div className="movie-info">
-        <h1>{title}</h1>
-        <p>{plot !== "N/A" ? plot : "No summary is available."}</p>
-      </div>
-      <Link to="/">Back to Search</Link>
-    </section>
+    <>
+      <nav class="navbar">
+        <Link to="/" className="text-decoration-none mx-2">
+          Back to Search
+        </Link>
+      </nav>
+      <section className="container">
+        <div className="row align-items-center mt-5">
+          <div className="text-center col">
+            <img
+              src={poster !== "N/A" ? poster : ""}
+              alt={title}
+              className="single-movie-img mb-3"
+            />
+          </div>
+          <div className="card w-50 col mb-5">
+            <div className="card-body">
+              <h1 className="card-title text-center">{title}</h1>
+              <p className="card-text mb-4">
+                {plot !== "N/A" ? plot : "No summary is available."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
