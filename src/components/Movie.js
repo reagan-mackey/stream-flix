@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { API_ENDPOINT } from "../context/search-context";
 import axios from "axios";
+import Sources from "./Sources";
 
 const Movie = () => {
   const [movie, setMovie] = useState({});
@@ -46,6 +47,7 @@ const Movie = () => {
               <p className="card-text mb-4">
                 {plot !== "N/A" ? plot : "No summary is available."}
               </p>
+              <Sources />
             </div>
           </div>
         </div>
