@@ -5,7 +5,7 @@ const SearchForm = () => {
 
   return (
     <div className="header mx-3">
-      <h1 className="app-title">search for movies</h1>
+      <h1 className="app-title">Stream Flix</h1>
       <form className="search-form" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"

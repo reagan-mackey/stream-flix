@@ -48,7 +48,11 @@ const Movie = () => {
         <div className="row align-items-center mt-5">
           <div className="text-center col">
             <img
-              src={poster !== "N/A" ? poster : ""}
+              src={
+                poster !== "N/A"
+                  ? poster
+                  : "https://via.placeholder.com/300x400?text=No+Image+Available"
+              }
               alt={title}
               className="single-movie-img mb-3"
             />
