@@ -6,6 +6,7 @@ const SOURCES_API_ENDPOINT = `https://api.watchmode.com/v1`;
 const Sources = () => {
   const { id } = useParams();
   const [sources, setSources] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchSources = async (url) => {
     try {
@@ -19,7 +20,9 @@ const Sources = () => {
         ),
       ];
       setSources(unique);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -29,6 +32,16 @@ const Sources = () => {
       `${SOURCES_API_ENDPOINT}/title/${id}/sources/?apiKey=${process.env.REACT_APP_SOURCES_API_KEY}`
     );
   }, [id]);
+
+  if (loading) {
+    return (
+      <div class="loader-container-sources d-flex justify-content-center align-items-center">
+        <div class="spinner-border loader-sources text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ul className="list-inline text-center">

@@ -6,14 +6,17 @@ import axios from "axios";
 const MovieList = () => {
   const { search } = useSearchContext();
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getMovies = async (url) => {
+    setLoading(true);
     try {
       const res = await axios.get(url);
       const data = res.data;
       if (data.Response === "True") {
         setMovies(data);
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -24,6 +27,16 @@ const MovieList = () => {
       `${API_ENDPOINT}/?s=${search}&apikey=${process.env.REACT_APP_API_KEY}`
     );
   }, [search]);
+
+  if (loading) {
+    return (
+      <div class="loader-container d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="movie-list card-group cards-container">

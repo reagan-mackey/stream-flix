@@ -5,14 +5,16 @@ import axios from "axios";
 import Sources from "./Sources";
 
 const Movie = () => {
-  const [movie, setMovie] = useState({});
   const { id } = useParams();
+  const [movie, setMovie] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetchMovie = async (url) => {
     try {
       const res = await axios.get(url);
       const data = res.data;
       setMovie(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -23,6 +25,16 @@ const Movie = () => {
       `${API_ENDPOINT}/?i=${id}&apikey=${process.env.REACT_APP_API_KEY}`
     );
   }, [id]);
+
+  if (loading) {
+    return (
+      <div class="loader-container d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   const { Poster: poster, Title: title, Plot: plot } = movie;
   return (

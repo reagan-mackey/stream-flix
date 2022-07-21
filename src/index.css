@@ -2,6 +2,17 @@ body {
   background-color: #1e1b26b3;
 }
 
+h1 {
+  font-family: "Space Mono", monospace;
+}
+
+a,
+p,
+h2,
+li {
+  font-family: "Bitter", serif;
+}
+
 h4 {
   font-size: 1rem;
 }
@@ -56,6 +67,24 @@ a:hover,
 
 .navbar {
   background-color: #1e1b26;
+}
+
+.loader-container {
+  height: 80vh;
+}
+
+.loader-container-sources {
+  height: 30vh;
+}
+
+.spinner-border {
+  height: 7rem;
+  width: 7rem;
+}
+
+.loader-sources {
+  height: 3rem;
+  width: 3rem;
 }
 
 @media (max-width: 576px) {
