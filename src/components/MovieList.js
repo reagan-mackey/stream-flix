@@ -58,7 +58,11 @@ const MovieList = () => {
                   >
                     <article className="movie-list m-1">
                       <img
-                        src={poster !== "N/A" ? poster : ""}
+                        src={
+                          poster !== "N/A"
+                            ? poster
+                            : "https://via.placeholder.com/300x400?text=No+Image+Available"
+                        }
                         alt={title}
                         className="card-img-top movie-list"
                       />
